@@ -16,7 +16,7 @@
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
 
-        <el-table :data="tableData" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
+        <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="date" label="日期" sortable width="150">
             </el-table-column>
@@ -90,12 +90,12 @@
                 this.getData();
             },
             getData(){
-                let self = this;
               /*  if(process.env.NODE_ENV === 'development'){
                     self.url = '/ms/table/list';
                 };*/
-                self.$axios.get(self.url, {page:self.cur_page}).then((res) => {
-                    self.tableData = res.data.list;
+                this.$axios.get(this.url, {page:this.cur_page}).then((res) => {
+                    this.tableData = res.data.list;
+                    
                 })
             },
 

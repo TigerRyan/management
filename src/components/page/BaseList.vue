@@ -9,14 +9,16 @@
         <div class="handle-box">
             <el-button type="primary" icon="delete" class="handle-del mr10" @click="delAll">批量删除</el-button>
             <el-select v-model="select_cate" placeholder="筛选省份" class="handle-select mr10">
-                <el-option key="1" label="广东省" value="广东省"></el-option>
-                <el-option key="2" label="湖南省" value="湖南省"></el-option>
+                <el-option key="1" label="北京市" value="北京市"></el-option>
+                <el-option key="2" label="陕西省" value="陕西省"></el-option>
+                <el-option key="3" label="昆明市" value="昆明市"></el-option>
+                <el-option key="4" label="陕西省" value="陕西省"></el-option>
             </el-select>
             <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
 
-        <el-table :data="tableData" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
+        <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="id" label="序号" sortable width="90">
             </el-table-column>
@@ -33,8 +35,7 @@
             <el-table-column prop="website" label="网址" width="150">
             </el-table-column>
 
-            <!--<div v-for='(item,index) in tableData' :key = 'index'>{{item.name}}</div>-->
-
+           
             <el-table-column label="操作" width="180">
                 <template scope="scope">
                     <el-button size="small"
@@ -71,7 +72,7 @@
         created(){
             this.getData();
         },
-        /*computed: {
+        computed: {
             data(){
                 const self = this;
                 return self.tableData.filter(function(d){    //关键字搜索
@@ -82,7 +83,7 @@
                             break;
                         }
                     }
-                    if(!is_del){                    //删除
+                    if(!is_del){                   
                         if(d.address.indexOf(self.select_cate) > -1 &&
                             (d.name.indexOf(self.select_word) > -1 ||
                             d.address.indexOf(self.select_word) > -1)
@@ -92,7 +93,7 @@
                     }
                 })
             }
-        },*/
+        },
         methods: {
             handleCurrentChange(val){     //页码变更
                 this.cur_page = val;
