@@ -118,9 +118,24 @@
             },
             handleEdit(index, row) {                  //进行编辑
                 this.$message('编辑第'+(index+1)+'行');
+
             },
             handleDelete(index, row) {                 //进行单行删除
-                this.$message.error('删除第'+(index+1)+'行');
+                 this.$message.error('删除第'+(index+1)+'行');
+                // this.$confirm('此操作将永久删除用户 ' + this.name + ', 是否继续?', '提示', { type: 'warning' }) 
+                //     .then(() => { // 向请求服务端删除 
+                //     var resource = this.$resource(this.url + "{/id}"); 
+                //     resource.delete({ id: this.id }) 
+                //     .then((response) => { 
+                //     this.$message.success('成功删除了用户' + this.name + '!');
+                //      this.getData(); 
+                //      }) 
+                //     .catch((response) => { 
+                //     this.$message.error('删除失败!'); 
+                //     }); 
+                //     }) .catch(() => { 
+                //     this.$message.info('已取消操作!');
+                //     }); 
             },
             delAll(){
                 const self = this,
