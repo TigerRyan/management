@@ -17,7 +17,7 @@
             <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
-
+        <!-- 列表 -->
         <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="id" label="序号" sortable width="90">
@@ -45,6 +45,7 @@
                 </template>
             </el-table-column>
         </el-table>
+        <!-- 工具条 -->
         <div class="pagination">
             <el-pagination
                 @current-change ="handleCurrentChange"
@@ -52,6 +53,14 @@
                 :total="1000">
             </el-pagination>
         </div>
+
+        <!-- <el-col :span="24" class="toolbar">
+			<el-button type="danger" >批量删除</el-button>
+			<el-pagination layout="prev, pager, next"  :page-size="20"  style="float:right;">
+			</el-pagination>
+		</el-col> -->
+
+        
     </div>
 </template>
 
